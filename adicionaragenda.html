@@ -38,8 +38,13 @@
 
             <!-- ⭐ NOVO CAMPO ADICIONADO: NOME DO EVENTO -->
             <div class="mb-3">
-                <label class="form-label">Nome do Evento</label>
+                <label class="form-label text-danger">Nome do Evento</label>
                 <input type="name" id="nomeEvento" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-danger">Horario do evento</label>
+                <input type="time" id="Horario" class="form-control" required>
             </div>
 
             <!-- DESCRIÇÃO -->
@@ -50,7 +55,7 @@
 
             <!-- PRIORIDADE -->
             <div class="mb-3">
-                <label class="form-label">Prioridade</label>
+                <label class="form-label text-danger" >Prioridade</label>
                 <select id="prioridade" class="form-select" required>
                     <option value="">Selecione...</option>
                     <option value="vermelho">🔴 Urgente</option>
@@ -61,7 +66,7 @@
 
             <!-- DATA -->
             <div class="mb-3">
-                <label class="form-label">Data</label>
+                <label class="form-label text-danger">Data</label>
                 <input type="date" id="data" class="form-control" required>
             </div>
 
@@ -77,20 +82,15 @@
 
 
 <script>
-// ALERTA PADRÃO DO SISTEMA
-function mostrarAlerta(msg, tipo = "warning") {
-    const alerta = document.createElement("div");
-    alerta.className =
-        `alert alert-${tipo} text-center position-fixed top-0 start-50 translate-middle-x mt-3 w-50 shadow`;
-    alerta.innerText = msg;
-    document.body.appendChild(alerta);
-    setTimeout(() => alerta.remove(), 2500);
+// ALERTA NATIVO DO NAVEGADOR
+function mostrarAlerta(msg) {
+    alert(msg);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formAgenda");
 
-    const nomeEvento = document.getElementById("nomeEvento"); // NOVO CAMPO
+    const nomeEvento = document.getElementById("nomeEvento");
     const descricao = document.getElementById("descricao");
     const prioridade = document.getElementById("prioridade");
     const data = document.getElementById("data");
@@ -99,15 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 🔒 BLOQUEAR DATAS PASSADAS
     const hoje = new Date().toISOString().split("T")[0];
     data.min = hoje;
-
-    // 🔍 Verifica se tem dados no formulário
-    function formTemDados() {
-        return (
-            nomeEvento.value.trim() !== "" || 
-            prioridade.value !== "" ||
-            data.value !== ""
-        );
-    }
 
     // ✔ SALVAR
     form.addEventListener("submit", (e) => {
@@ -118,34 +109,33 @@ document.addEventListener("DOMContentLoaded", () => {
             prioridade.value === "" ||
             data.value === ""
         ) {
-            mostrarAlerta("Preencha todos os campos!", "danger");
+            mostrarAlerta("Preencha todos os campos!");
             return;
         }
 
         // SUCESSO
-        mostrarAlerta("Evento adicionado com sucesso!", "success");
+        mostrarAlerta("Evento adicionado com sucesso!");
 
-        // Aguarda o alerta sumir
+        // Redireciona após 2.5s
         setTimeout(() => {
             window.location.href = "principal.html";
-        }, 1500);
+        }, 2500);
     });
 
-    // ❌ CANCELAR
+    // ❌ CANCELAR — sem confirmar nada!
     btnCancelar.addEventListener("click", (e) => {
         e.preventDefault();
 
-        if (formTemDados()) {
-            if (confirm("Tem certeza que deseja cancelar? Os dados serão perdidos.")) {
-                window.location.href = btnCancelar.href;
-            }
-        } else {
+        mostrarAlerta("Cancelado!");
+
+        setTimeout(() => {
             window.location.href = btnCancelar.href;
-        }
+        }, 2500);
     });
 });
 </script>
 
 </body>
 </html>
+
 

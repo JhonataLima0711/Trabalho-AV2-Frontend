@@ -41,7 +41,7 @@
             <button id="btnExcluir" class="btn btn-danger me-4">Excluir</button>
         </div>
 
-        <!-- tabele de usuoarios -->
+        <!-- tabela de usuários -->
         <table class="table table-striped table-hover align-middle">
             <thead class="table-primary">
                 <tr>
@@ -87,7 +87,7 @@
 
 <div id="rodape"></div>
 
-         <!--========= comandos de java scrip do meu site para deixar bonito ===============-->
+<!--========= comandos de javascript ===============-->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -100,32 +100,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return Array.from(document.querySelectorAll(".user-check"));
     }
 
-    // função para mostrar alerta
-    function mostrarAlerta(msg, tipo = "warning") {
-        const alerta = document.createElement("div");
-        alerta.className = `alert alert-${tipo} text-center position-fixed top-0 start-50 translate-middle-x mt-3 w-50 shadow`;
-        alerta.innerText = msg;
-        document.body.appendChild(alerta);
-        setTimeout(() => alerta.remove(), 2500);
-    }
-
     // BOTÃO EDITAR
     btnEditar.addEventListener("click", () => {
         const selecionados = getCheckboxes().filter(c => c.checked);
 
         if (selecionados.length === 0) {
-            mostrarAlerta("Selecione um usuário primeiro!", "warning");
+            alert("Selecione um usuário primeiro!");
             return;
         }
         if (selecionados.length > 1) {
-            mostrarAlerta("Selecione apenas 1 usuário para editar!", "danger");
+            alert("Selecione apenas 1 usuário para editar!");
             return;
         }
 
         const linha = selecionados[0].closest("tr");
         const id = linha.getAttribute("data-id");
 
-        // REDIRECIONAMENTO CORRIGIDO
         window.location.href = `edituser.html?id=${id}`;
     });
 
@@ -134,13 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const selecionados = getCheckboxes().filter(c => c.checked);
 
         if (selecionados.length === 0) {
-            mostrarAlerta("Selecione pelo menos 1 usuário para excluir!", "warning");
+            alert("Selecione pelo menos 1 usuário para excluir!");
             return;
         }
 
         if (!confirm("Tem certeza que deseja excluir o(s) usuário(s)?")) return;
 
-        mostrarAlerta("Usuário(s) excluído(s) com sucesso!", "success");
+        alert("Usuário(s) excluído(s) com sucesso!");
     });
 
     // CHECK ALL

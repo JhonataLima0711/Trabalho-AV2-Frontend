@@ -41,17 +41,17 @@
             <form id="formEditar">
 
                 <div class="mb-3">
-                    <label for="nome" class="form-label">Nome</label>
+                    <label for="nome" class="form-label text-danger">Nome</label>
                     <input type="name" id="nome" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">E-mail</label>
+                    <label for="email" class="form-label text-danger">E-mail</label>
                     <input type="email" id="email" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="perfil" class="form-label">Perfil</label>
+                    <label for="perfil" class="form-label text-danger">Perfil</label>
                     <select id="perfil" class="form-select" required>
                         <option value="">Selecione...</option>
                         <option>Usuário</option>
@@ -75,15 +75,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Exibe mensagem no topo
-        function mostrarAlerta(msg, tipo = "success") {
-            const alerta = document.createElement("div");
-            alerta.className = `alert alert-${tipo} text-center position-fixed top-0 start-50 translate-middle-x mt-3 w-50 shadow`;
-            alerta.innerText = msg;
-            document.body.appendChild(alerta);
-            setTimeout(() => alerta.remove(), 2500);
-        }
-
         // Verifica se algum campo tem dado preenchido
         function formTemDados() {
             return (
@@ -98,7 +89,7 @@
             const form = document.getElementById("formEditar");
             const btnCancelar = document.getElementById("btnCancelar");
 
-            // SALVAR → valida e mostra mensagem antes de redirecionar
+            // SALVAR → valida e mostra alert simples
             form.addEventListener("submit", (e) => {
                 e.preventDefault(); // impede reload
 
@@ -107,12 +98,11 @@
                 const perfil = document.getElementById("perfil").value;
 
                 if (nome === "" || email === "" || perfil === "") {
-                    mostrarAlerta("Preencha todos os campos antes de salvar!", "danger");
+                    alert("Preencha todos os campos antes de salvar!");
                     return;
                 }
 
-                // Aqui salva os dados no backend se houver
-                mostrarAlerta("Usuário editado com sucesso!", "success");
+                alert("Usuário editado com sucesso!");
 
                 // Limpa os campos
                 form.reset();
