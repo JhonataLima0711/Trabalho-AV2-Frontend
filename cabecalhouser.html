@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="Style.css">
+  <title>Agenda e calendário para Professores</title>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-newcolor ">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="telainicial.html">
+      <!-- me-2 espaçamento entre o icone do calendario e o title-->
+      <i class="bi bi-calendar-check me-2 "></i>Agenda e calendário para Professores
+    </a>
+
+    <button class="navbar-toggler bg-newcolor" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+      
+        <!-- Perfil -->
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white d-flex align-items-center" href="#" id="perfilDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle me-1"></i> Perfil
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="perfilDropdown">
+            <li><a class="dropdown-item" href="telainicial.html"><i class="bi bi-box-arrow-right me-1"></i> Sair</a></li>
+          </ul>
+        </li>
+
+          <ul class="submenu">
+            <!--
+            <li><a href="#"><i class="bi bi-gear"></i> Configurações</a></li>
+            -->
+            <li><a href="telainicial.html"><i class="bi bi-box-arrow-right"></i> Sair</a></li> 
+            <!-- REMOVIDO o botão de usuário daqui -->
+          </ul>
+        </li>
+
+       
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal para adicionar um novo evento -->
+<div class="modal fade" id="adicionarAgendaModal" tabindex="-1" aria-labelledby="adicionarAgendaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-newcolor text-white">
+        <h5 class="modal-title" id="adicionarAgendaModalLabel"><i class="bi bi-calendar-plus"></i> Adicionar Evento</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Alerta de sucesso (inicialmente escondido) -->
+        <div id="alertaSucesso" class="alert alert-success d-none" role="alert">
+          ✅ Evento adicionado com sucesso!
+        </div>
+
+        <!-- 🔽 ALTERAÇÃO: adicionado onsubmit para mostrar o alerta sem recarregar -->
+        <form onsubmit="event.preventDefault(); document.getElementById('alertaSucesso').classList.remove('d-none');">
+
+          <div class="mb-3">
+            <label for="nomeEvento" class="form-label">Nome do Evento:</label>
+            <input type="text" class="form-control" id="nomeEvento" placeholder="Digite o nome do evento">
+          </div>
+
+          <div class="mb-3">
+            <label for="diaEvento" class="form-label">Dia do Evento:</label>
+            <input type="date" class="form-control" id="diaEvento">
+          </div>
+          
+          <div class="mb-3">
+            <label for="prioridade" class="form-label">Prioridade:</label>
+            <select class="form-select" id="prioridade">
+              <option value="verde">🟢 Verde (Baixa)</option>
+              <option value="amarelo">🟡 Amarelo (Média)</option>
+              <option value="vermelho">🔴 Vermelho (Alta)</option>
+            </select>
+          </div>
+
+          <!-- 🔽 ALTERAÇÃO: botão agora envia o form (acionando o alerta) -->
+          <button type="submit" class="btn btn-success w-100">Confirmar Evento</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Conteúdo -->
+<div class="container mt-4">
+ 
+</div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Usuários</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/png" href="Imagens, videos e fivecon/school-time_11698254.png">
+
+    <script>
+        // Carrega menu
+        fetch('cabecalhouser.html')
+            .then(r => r.text())
+            .then(html => document.getElementById('menu').innerHTML = html);
+
+        // Carrega rodapé
+        fetch('rodape.html')
+            .then(r => r.text())
+            .then(html => document.getElementById('rodape').innerHTML = html);
+    </script>
+</head>
+
+<body class="bg-light min-vh-100 d-flex flex-column">
+
+<div id="menu"></div>
+
+<main class="container-fluid flex-fill d-flex align-items-start justify-content-center py-4">
+    <div class="card shadow p-4 w-100">
+        <h2 class="mb-3">Listagem de Usuários</h2>
+
+        <!-- BOTÕES -->
+        <div class="mb-3">
+            <a href="principal.html" class="btn btn-success me-4">Voltar</a>
+
+            <a href="incluir.html" class="btn btn-primary me-4">Incluir</a>
+
+            <button id="btnEditar" class="btn btn-primary me-4">Editar</button>
+
+            <button id="btnExcluir" class="btn btn-danger me-4">Excluir</button>
+        </div>
+
+        <!-- tabele de usuoarios -->
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-primary">
+                <tr>
+                    <th><input type="checkbox" id="checkAll"></th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Perfil</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaUsuarios">
+                <tr data-id="1">
+                    <td><input type="checkbox" class="user-check"></td>
+                    <td>João da Silva</td>
+                    <td>joao.silva@example.com</td>
+                    <td>Administrador</td>
+                </tr>
+
+                <tr data-id="2">
+                    <td><input type="checkbox" class="user-check"></td>
+                    <td>Maria Oliveira</td>
+                    <td>maria.oliveira@example.com</td>
+                    <td>Usuário</td>
+                </tr>
+
+                <tr data-id="3">
+                    <td><input type="checkbox" class="user-check"></td>
+                    <td>Solano Lopes</td>
+                    <td>solano.lopes@example.com</td>
+                    <td>Estagiário</td>
+                </tr>
+
+                <tr data-id="4">
+                    <td><input type="checkbox" class="user-check"></td>
+                    <td>Carlos Souza</td>
+                    <td>carlos.souza@example.com</td>
+                    <td>Funcionário</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<div id="rodape"></div>
+
+         <!--========= comandos de java scrip do meu site para deixar bonito ===============-->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const btnEditar = document.getElementById("btnEditar");
+    const btnExcluir = document.getElementById("btnExcluir");
+    const checkAll = document.getElementById("checkAll");
+
+    function getCheckboxes() {
+        return Array.from(document.querySelectorAll(".user-check"));
+    }
+
+    // função para mostrar alerta
+    function mostrarAlerta(msg, tipo = "warning") {
+        const alerta = document.createElement("div");
+        alerta.className = `alert alert-${tipo} text-center position-fixed top-0 start-50 translate-middle-x mt-3 w-50 shadow`;
+        alerta.innerText = msg;
+        document.body.appendChild(alerta);
+        setTimeout(() => alerta.remove(), 2500);
+    }
+
+    // BOTÃO EDITAR
+    btnEditar.addEventListener("click", () => {
+        const selecionados = getCheckboxes().filter(c => c.checked);
+
+        if (selecionados.length === 0) {
+            mostrarAlerta("Selecione um usuário primeiro!", "warning");
+            return;
+        }
+        if (selecionados.length > 1) {
+            mostrarAlerta("Selecione apenas 1 usuário para editar!", "danger");
+            return;
+        }
+
+        const linha = selecionados[0].closest("tr");
+        const id = linha.getAttribute("data-id");
+
+        // REDIRECIONAMENTO CORRIGIDO
+        window.location.href = `edituser.html?id=${id}`;
+    });
+
+    // BOTÃO EXCLUIR
+    btnExcluir.addEventListener("click", () => {
+        const selecionados = getCheckboxes().filter(c => c.checked);
+
+        if (selecionados.length === 0) {
+            mostrarAlerta("Selecione pelo menos 1 usuário para excluir!", "warning");
+            return;
+        }
+
+        if (!confirm("Tem certeza que deseja excluir o(s) usuário(s)?")) return;
+
+        mostrarAlerta("Usuário(s) excluído(s) com sucesso!", "success");
+    });
+
+    // CHECK ALL
+    checkAll.addEventListener("change", function () {
+        getCheckboxes().forEach(c => c.checked = this.checked);
+    });
+
+});
+</script>
+
+</body>
+</html>
+
+

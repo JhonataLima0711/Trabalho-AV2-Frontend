@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incluir Usuário</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+   <link rel="icon" type="image/png" href="Imagens, videos e fivecon/school-time_11698254.png">
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        // Carrega o cabeçalho
+        fetch('cabecalhouser.html')
+            .then(resp => resp.text())
+            .then(html => document.getElementById('menu').innerHTML = html);
+
+        // Carrega o rodapé
+        fetch('rodape.html')
+            .then(resp => resp.text())
+            .then(html => document.getElementById('rodape').innerHTML = html);
+    </script>
+</head>
+
+<body class="bg-light min-vh-100 d-flex flex-column">
+
+    <!-- MENU -->
+    <div id="menu"></div>
+
+    <!-- CONTEÚDO -->
+    <main id="principal"
+          class="container-fluid flex-fill d-flex align-items-start justify-content-center py-4">
+
+        <div class="card shadow p-4 w-100">
+
+            <h2 class="mb-3">Incluir Usuário</h2>
+
+            <form id="formIncluir">
+
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="name" id="nome" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="perfil" class="form-label">Perfil</label>
+                    <select id="perfil" class="form-select" required>
+                        <option value="">Selecione...</option>
+                        <option>Usuário</option>
+                        <option>Estagiário</option>
+                        <option>Funcionário</option>
+                        <option>Administrador</option>
+                    </select>
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="usoario.html" id="btnCancelar" class="btn btn-danger">Cancelar</a>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <div id="rodape"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+    // Função de alerta verde / vermelho
+    function mostrarAlerta(msg, tipo = "warning") {
+        const alerta = document.createElement("div");
+        alerta.className =
+            `alert alert-${tipo} text-center position-fixed top-0 start-50 translate-middle-x mt-3 w-50 shadow`;
+        alerta.innerText = msg;
+        document.body.appendChild(alerta);
+
+        setTimeout(() => alerta.remove(), 2500);
+    }
+
+    // Verifica se algum campo foi preenchido
+    function formTemDados() {
+        return (
+            document.getElementById("nome").value.trim() !== "" ||
+            document.getElementById("email").value.trim() !== "" ||
+            document.getElementById("perfil").value !== ""
+        );
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const form = document.getElementById("formIncluir");
+        const btnCancelar = document.getElementById("btnCancelar");
+
+        // SALVAR → valida + alerta verde + redirecionamento
+        form.addEventListener("submit", (e) => {
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const perfil = document.getElementById("perfil").value;
+
+            if (nome === "" || email === "" || perfil === "") {
+                e.preventDefault();
+                mostrarAlerta("Preencha todos os campos antes de salvar!", "danger");
+                return;
+            }
+
+            // Impede envio imediato
+            e.preventDefault();
+
+            // Alerta verde ✔
+            mostrarAlerta("Usuário incluído com sucesso!", "success");
+
+            // Redireciona após 2.5s
+            setTimeout(() => {
+                window.location.href = "usoario.html";
+            }, 2500);
+        });
+
+        // CANCELAR → Confirmação
+        btnCancelar.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            if (confirm("Tem certeza que deseja cancelar?")) {
+                window.location.href = btnCancelar.getAttribute("href");
+            }
+        });
+
+    });
+    </script>
+
+</body>
+</html>
+
+
