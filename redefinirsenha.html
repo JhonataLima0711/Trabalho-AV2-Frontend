@@ -68,28 +68,22 @@
     <div id="rodape"></div>
 
 
-    <script>
-        // =========== comandos de script para mostrar alert de senha alterada =====================
+<script>
 document.addEventListener("DOMContentLoaded", () => {
+
     const form = document.querySelector("form");
 
     form.addEventListener("submit", (e) => {
-        e.preventDefault(); // Evita enviar direto
+        e.preventDefault();  // Impede envio automático
 
-        // Mensagem de sucesso
-        const alerta = document.createElement("div");
-        alerta.className =
-            "alert alert-success text-center position-fixed top-0 start-50 translate-middle-x mt-3 w-50 shadow";
-        alerta.innerText = "Senha redefinida com sucesso!";
-        document.body.appendChild(alerta);
+        alert("Senha redefinida com sucesso!"); // ALERTA SIMPLES
 
-        // Espera 2 segundos e redireciona
         setTimeout(() => {
-            window.location.href = "login.html";
+            window.location.href = "login.html"; // Redireciona após 2s
         }, 2000);
     });
+
 });
 </script>
-
 </body>
 </html>
