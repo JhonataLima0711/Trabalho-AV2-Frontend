@@ -32,17 +32,17 @@
         id="principal"
         class="container-fluid flex-fill d-flex align-items-center justify-content-center"
     >
-    <!-- caixa de login-->
+        <!-- caixa de login-->
         <div class="p-5 bg-white shadow rounded"
              style="max-width: 700px; width: 100%;"> 
             <h2 class="text-center">Login</h2>
 
-            <form action="principal.html" method="get">
+            <form id="formlogin" action="principal.html" method="get">
 
                 <div class="mb-2">
                     <label for="email" class="form-label text-danger">Digite email</label>
                     <input
-                        type="name  "
+                        type="email"
                         class="form-control"
                         id="email"
                         name="email"
@@ -76,15 +76,35 @@
                 <div class="d-grid">
                     <a href="index.html" class="btn-cadastro">Voltar</a>
                 </div>
-                     <p class="mt-2">
-                esqueceu a senha ?
-                <a href="senhaetapa1.html">
-                    <strong>Clique aqui para redefinir a senha</strong>
+
+                <p class="mt-2">
+                    esqueceu a senha ?
+                    <a href="senhaetapa1.html">
+                        <strong>Clique aqui para redefinir a senha</strong>
+                    </a>
+                </p>
             </form>
         </div>
     </main>
 
+    <!-- SCRIPT COM ALERTA SIMPLES -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("formlogin");
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                alert("Login efetuado com sucesso!");
+
+                window.location.href = "principal.html";
+            });
+        });
+    </script>
+
     <div id="rodape"></div>
 </body>
 </html>
+
+
 

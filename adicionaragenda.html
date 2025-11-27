@@ -116,21 +116,21 @@ document.addEventListener("DOMContentLoaded", () => {
         // SUCESSO
         mostrarAlerta("Evento adicionado com sucesso!");
 
-        // Redireciona após 2.5s
+        // Redireciona após 1.0s para a tela inicial
         setTimeout(() => {
             window.location.href = "principal.html";
-        }, 2500);
+        }, 1000);
     });
 
-    // ❌ CANCELAR — sem confirmar nada!
+    // CANCELAR — sem confirmar nada!
     btnCancelar.addEventListener("click", (e) => {
         e.preventDefault();
 
         mostrarAlerta("Cancelado!");
-
+        // comandos para retornar ao principal após 1.0 segundos
         setTimeout(() => {
             window.location.href = btnCancelar.href;
-        }, 2500);
+        }, 1000);
     });
 });
 </script>

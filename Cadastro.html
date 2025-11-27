@@ -84,5 +84,27 @@
     </main>
     <br>
     <div id="rodape"></div>
+
+<script>
+// ========= comandos do java script =========
+// alerta simples ao cadastrar user
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // impede envio imediato
+
+        alert("Cadastro realizado com sucesso!");
+
+        // volta para a página principal após 2s
+        setTimeout(() => {
+            form.submit();
+        }, 1000);
+    });
+
+});
+</script>
+
 </body>
 </html>
