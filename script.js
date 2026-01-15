@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         alert("✅ Evento salvo com sucesso!");
 
-        
+        // redireciona de volta pro calendário
         window.location.href = "principal.html";
     });
 });
@@ -397,6 +397,12 @@ document.addEventListener("DOMContentLoaded", () => {
 //================================================
 //    balão de como o usoario pode mexer no site
 //================================================
+
+// ================= BALÃO DE AJUDA =================
+
+// ================= DICAS SUTIS (HINTS) =================
+
+// ================= DICAS SUTIS (HINTS) =================
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -417,12 +423,12 @@ document.addEventListener("DOMContentLoaded", () => {
         trigger: "manual"
     });
 
-    
-    const tempoAntesAdd = 2000;    
-    const tempoAddVisivel = 3000;  
+    // ⏱️ CONFIGURAÇÃO DOS TEMPOS (em ms)
+    const tempoAntesAdd = 2000;     // 2s para aparecer o +
+    const tempoAddVisivel = 3000;   // 3s visível
 
-    const tempoAntesRemove = 6000; 
-    const tempoRemoveVisivel = 3000;
+    const tempoAntesRemove = 6000;  // quando o - aparece
+    const tempoRemoveVisivel = 3000;// 3s visível
 
     setTimeout(() => {
         dicaAdd.show();
@@ -443,5 +449,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, tempoAntesRemove);
 
 });
-
 
