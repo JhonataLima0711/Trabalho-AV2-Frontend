@@ -87,61 +87,8 @@
 
 <div id="rodape"></div>
 
-<!--========= comandos de javascript ===============-->
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const btnEditar = document.getElementById("btnEditar");
-    const btnExcluir = document.getElementById("btnExcluir");
-    const checkAll = document.getElementById("checkAll");
-
-    function getCheckboxes() {
-        return Array.from(document.querySelectorAll(".user-check"));
-    }
-
-    // BOTÃO EDITAR
-    btnEditar.addEventListener("click", () => {
-        const selecionados = getCheckboxes().filter(c => c.checked);
-
-        if (selecionados.length === 0) {
-            alert("Selecione um usuário primeiro!");
-            return;
-        }
-        if (selecionados.length > 1) {
-            alert("Selecione apenas 1 usuário para editar!");
-            return;
-        }
-
-        const linha = selecionados[0].closest("tr");
-        const id = linha.getAttribute("data-id");
-
-        window.location.href = `edituser.html?id=${id}`;
-    });
-
-    // BOTÃO EXCLUIR
-    btnExcluir.addEventListener("click", () => {
-        const selecionados = getCheckboxes().filter(c => c.checked);
-
-        if (selecionados.length === 0) {
-            alert("Selecione pelo menos 1 usuário para excluir!");
-            return;
-        }
-
-        if (!confirm("Tem certeza que deseja excluir o(s) usuário(s)?")) return;
-
-        alert("Usuário(s) excluído(s) com sucesso!");
-    });
-
-    // CHECK ALL
-    checkAll.addEventListener("change", function () {
-        getCheckboxes().forEach(c => c.checked = this.checked);
-    });
-
-});
-</script>
-
 </body>
+<script src="script.js"></script>
 </html>
 
 

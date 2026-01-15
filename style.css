@@ -273,3 +273,56 @@ input:focus {
             border-color: #0d1bd9;
             box-shadow: 0 0 5px rgba(220,53,69,0.5);
         }
+
+        /*adicionando css para deixar o nome do calendario visivel ao clicar*/
+        #mesAno:hover {
+          text-decoration: underline;
+          color: #0d6efd;
+        }
+
+        /* =====================================================
+   🔧 AUMENTA OS QUADRADOS DO CALENDÁRIO (td da tabela)
+   ===================================================== */
+/* Cada dia do calendário fica maior e mais confortável */
+.table td {
+    height: 80px;          /* aumenta a altura do quadrado */
+    vertical-align: top;    /* número do dia fica no topo */
+    padding: 6px;           /* espaço interno */
+    position: relative;     /* necessário para posicionar bolinhas */
+}
+
+/* Mobile: deixa os dias ainda maiores */
+@media (max-width: 768px) {
+    .table td {
+        height: 120px;
+    }
+}
+
+/* =====================================================
+   🔧 ÁREA DAS BOLINHAS (parte inferior do dia)
+   ===================================================== */
+/* Mesmo sem eventos, essa área fica "reservada" */
+.bolinhas {
+    position: absolute;
+    bottom: 6px;            /* posiciona no fundo do quadrado */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;               /* espaço entre bolinhas */
+}
+
+/* =====================================================
+   🔧 BOLINHAS DE PRIORIDADE
+   ===================================================== */
+.bolinha {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;     /* deixa redondo */
+}
+
+/* Cores das prioridades */
+.vermelho { background-color: #dc3545; } /* 🔴 urgente */
+.amarelo  { background-color: #ffc107; } /* 🟡 média */
+.verde    { background-color: #198754; } /* 🟢 baixa */
+
+

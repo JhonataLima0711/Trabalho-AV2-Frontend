@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Incluir Usuário</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-   <link rel="icon" type="image/png" href="Imagens, videos e fivecon/school-time_11698254.png">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- CSS externo -->
+    <link rel="icon" type="image/png" href="Imagens, videos e fivecon/school-time_11698254.png">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-    <script>
-        // Carrega o cabeçalho
-        fetch('cabecalhouser.html')
-            .then(resp => resp.text())
-            .then(html => document.getElementById('menu').innerHTML = html);
-
-        // Carrega o rodapé
-        fetch('rodape.html')
-            .then(resp => resp.text())
-            .then(html => document.getElementById('rodape').innerHTML = html);
-    </script>
 </head>
 
 <body class="bg-light min-vh-100 d-flex flex-column">
@@ -33,13 +20,12 @@
     <div id="menu"></div>
 
     <!-- CONTEÚDO -->
-    <main id="principal"
-          class="container-fluid flex-fill d-flex align-items-start justify-content-center py-4">
+    <main class="container-fluid flex-fill d-flex align-items-start justify-content-center py-4">
 
         <div class="card shadow p-4 w-100">
 
             <h2 class="mb-3">Incluir Usuário</h2>
-
+            <div id="alerta" class="alert d-none" role="alert"></div>
             <form id="formIncluir">
 
                 <div class="mb-3">
@@ -62,7 +48,7 @@
                         <option>Administrador</option>
                     </select>
                 </div>
-               
+
                 <button type="submit" class="btn btn-primary">Salvar</button>
                 <a href="usoario.html" id="btnCancelar" class="btn btn-danger">Cancelar</a>
             </form>
@@ -73,59 +59,11 @@
     <!-- RODAPÉ -->
     <div id="rodape"></div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-
-    // Verifica se algum campo foi preenchido
-    function formTemDados() {
-        return (
-            document.getElementById("nome").value.trim() !== "" ||
-            document.getElementById("email").value.trim() !== "" ||
-            document.getElementById("perfil").value !== ""
-        );
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const form = document.getElementById("formIncluir");
-        const btnCancelar = document.getElementById("btnCancelar");
-
-        // SALVAR → valida + alert simples + redirecionamento
-        form.addEventListener("submit", (e) => {
-            const nome = document.getElementById("nome").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const perfil = document.getElementById("perfil").value;
-
-            if (nome === "" || email === "" || perfil === "") {
-                e.preventDefault();
-                alert("Preencha todos os campos antes de salvar!");
-                return;
-            }
-
-            e.preventDefault();
-
-            alert("Usuário incluído com sucesso!");
-
-            // Redireciona após 1.0s
-            setTimeout(() => {
-                window.location.href = "usoario.html";
-            }, 1000);
-        });
-
-        // CANCELAR → Confirmação simples
-        btnCancelar.addEventListener("click", (e) => {
-            e.preventDefault();
-
-            if (confirm("Tem certeza que deseja cancelar?")) {
-                window.location.href = btnCancelar.getAttribute("href");
-            }
-        });
-
-    });
-    </script>
-
+    <!-- SCRIPT GLOBAL -->
+    <script src="script.js"></script>
 </body>
 </html>
 
