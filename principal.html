@@ -29,7 +29,7 @@
     </script>
 </head>
 
-<body class="bg-light min-vh-100 d-flex flex-column">
+<body class="min-vh-100 d-flex flex-column">
 
     <!-- MENU -->
     <div id="menu"></div>
@@ -46,20 +46,20 @@
                         <h5 class="mb-0">Prioridades do mês</h5>
 
                         <div class="d-flex gap-1">
-                      <!-- BOTÃO + -->
-<a href="adicionaragenda.html"
-   class="btn btn-sm btn-outline-success"
-   id="btnAdd"
-   title="Adicionar prioridade">
-    <i class="bi bi-plus-circle"></i>
-</a>
+                            <!-- BOTÃO + -->
+                            <a href="adicionaragenda.html"
+                               class="btn btn-sm btn-outline-success"
+                               id="btnAdd"
+                               title="Adicionar prioridade">
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
 
-<!-- BOTÃO - -->
-<button class="btn btn-sm btn-outline-danger"
-        id="btnGerenciarEventos"
-        title="Remover prioridades">
-    <i class="bi bi-dash-circle"></i>
-</button>
+                            <!-- BOTÃO - -->
+                            <button class="btn btn-sm btn-outline-danger"
+                                    id="btnGerenciarEventos"
+                                    title="Remover prioridades">
+                                <i class="bi bi-dash-circle"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -76,23 +76,22 @@
                 <div class="card shadow">
 
                     <div class="d-flex justify-content-between align-items-center p-2">
-                        <button class="btn btn-light" id="btnAnterior">
+                        <button class="btn btn-outline-secondary" id="btnAnterior">
                             <i class="bi bi-chevron-left"></i>
                         </button>
 
-                        <!-- ELEMENTO QUE TEM AJUDA -->
                         <h5 id="mesAno"
                             class="mb-0 text-center flex-fill ajuda-agenda"
                             style="cursor: help;">
                         </h5>
 
-                        <button class="btn btn-light" id="btnProximo">
+                        <button class="btn btn-outline-secondary" id="btnProximo">
                             <i class="bi bi-chevron-right"></i>
                         </button>
                     </div>
 
                     <table class="table table-bordered text-center mb-0">
-                        <thead class="table-light">
+                        <thead>
                             <tr>
                                 <th>Dom</th>
                                 <th>Seg</th>
@@ -140,6 +139,9 @@
             </div>
         </div>
     </div>
+
+    <!-- TEMA (deixa por último mesmo) -->
+    <script src="tema.js"></script>
 
 </body>
 </html>

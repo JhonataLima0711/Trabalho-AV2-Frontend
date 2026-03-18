@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const formAgenda = document.getElementById("formAgenda");
-    if (!formAgenda) return; // só roda na página certa
+    if (!formAgenda) return; 
 
     formAgenda.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -398,12 +398,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //    balão de como o usoario pode mexer no site
 //================================================
 
-// ================= BALÃO DE AJUDA =================
-
-// ================= DICAS SUTIS (HINTS) =================
-
-// ================= DICAS SUTIS (HINTS) =================
-
 document.addEventListener("DOMContentLoaded", () => {
 
     const btnAdd = document.getElementById("btnAdd");
@@ -423,12 +417,11 @@ document.addEventListener("DOMContentLoaded", () => {
         trigger: "manual"
     });
 
-    // ⏱️ CONFIGURAÇÃO DOS TEMPOS (em ms)
-    const tempoAntesAdd = 2000;     // 2s para aparecer o +
-    const tempoAddVisivel = 3000;   // 3s visível
-
-    const tempoAntesRemove = 6000;  // quando o - aparece
-    const tempoRemoveVisivel = 3000;// 3s visível
+    // ⏱️ CONFIGURAÇÃO DOS TEMPOS 
+    const tempoAntesAdd = 2000;     
+    const tempoAddVisivel = 3000;   
+    const tempoAntesRemove = 6000;  
+    const tempoRemoveVisivel = 3000;
 
     setTimeout(() => {
         dicaAdd.show();
@@ -449,4 +442,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }, tempoAntesRemove);
 
 });
+
+const hoje = new Date();
+
+if (
+  dia === hoje.getDate() &&
+  mes === hoje.getMonth() &&
+  ano === hoje.getFullYear()
+) {
+  td.classList.add("hoje");
+}
+
 

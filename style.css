@@ -324,5 +324,234 @@ input:focus {
 .vermelho { background-color: #dc3545; } /* 🔴 urgente */
 .amarelo  { background-color: #ffc107; } /* 🟡 média */
 .verde    { background-color: #198754; } /* 🟢 baixa */
+/* =====================================================
+   🌙 MODO ESCURO – VISUAL LIMPO E PROFISSIONAL
+   (não altera tamanho, padding, margem ou grid)
+   ===================================================== */
+
+body.dark-mode {
+  background-color: #0f1115;
+  color: #e6e6e6;
+}
+
+/* fundo geral */
+body.dark-mode .bg {
+  background-color: #0f1115;
+}
+
+/* NAVBAR e RODAPÉ */
+body.dark-mode .bg-newcolor,
+body.dark-mode .navbar.bg-newcolor,
+body.dark-mode footer.bg-newcolor {
+  background-color: #161a20 !important;
+}
+
+/* textos gerais */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label {
+  color: #e6e6e6;
+}
+
+/* cards, caixas e modais */
+body.dark-mode .card,
+body.dark-mode .form-box,
+body.dark-mode .modal-content {
+  background-color: #181c23;
+  color: #e6e6e6;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+/* INPUTS */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #202532;
+  color: #ffffff;
+  border: 1px solid #2f3545;
+}
+
+body.dark-mode input::placeholder {
+  color: #9aa0ac;
+}
+
+body.dark-mode input:focus {
+  border-color: #25b8d6;
+  box-shadow: 0 0 6px rgba(37,184,214,0.5);
+}
+
+/* BOTÕES */
+body.dark-mode .btn {
+  color: #ffffff;
+}
+
+body.dark-mode .btn-primary,
+body.dark-mode .btn-cadastro,
+body.dark-mode .btn-inicial {
+  background-color: #25b8d6 !important;
+  border-color: #25b8d6 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-cadastro:hover,
+body.dark-mode .btn-inicial:hover {
+  background-color: #1fa2bd !important;
+}
+
+/* botões outline */
+body.dark-mode .btn-outline-primary {
+  color: #25b8d6;
+  border-color: #25b8d6;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+  background-color: #25b8d6;
+  color: #ffffff;
+}
+
+/* dropdown perfil */
+body.dark-mode .submenu {
+  background-color: #181c23;
+  border: 1px solid #2f3545;
+}
+
+body.dark-mode .submenu li a {
+  color: #e6e6e6;
+}
+
+body.dark-mode .submenu li a:hover {
+  background-color: #25b8d6;
+  color: #ffffff;
+}
+
+/* TABELA / CALENDÁRIO (sem mexer no tamanho) */
+body.dark-mode .table {
+  color: #e6e6e6;
+}
+
+body.dark-mode .table td {
+  background-color: #141820;
+}
+
+/* linhas da tabela */
+body.dark-mode .table th {
+  background-color: #161a20;
+  color: #e6e6e6;
+}
+
+/* LINKS */
+body.dark-mode a {
+  color: #4cc9e8;
+}
+
+body.dark-mode a:hover {
+  color: #7bdff2;
+}
 
 
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* 🌙 MODO ESCURO */
+/* ========================= */
+
+body.dark-mode {
+  background-color: #0f172a;
+  color: #e6e6e6;
+}
+
+/* CARDS E CAIXAS */
+body.dark-mode .card,
+body.dark-mode .caixa-login {
+  background-color: #1e293b;
+  color: #e6e6e6;
+}
+
+/* TABELA */
+body.dark-mode table {
+  background-color: #1e293b;
+  color: #e6e6e6;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+  border-color: #334155;
+  color: #ffffff;
+}
+
+/* REMOVE FUNDO BRANCO DO BOOTSTRAP */
+body.dark-mode .table td,
+body.dark-mode .table th {
+  background-color: transparent;
+}
+
+/* TEXTOS */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
+}
+
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span,
+body.dark-mode label {
+  color: #e6e6e6;
+}
+
+/* NÚMEROS DO CALENDÁRIO */
+body.dark-mode td strong {
+  color: #ffffff;
+}
+
+/* BOTÕES */
+body.dark-mode .btn {
+  color: #e6e6e6;
+}
+
+/* INPUTS (CORRIGIDO AQUI 👇) */
+body.dark-mode .form-control {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #334155;
+}
+
+/* placeholder */
+body.dark-mode .form-control::placeholder {
+  color: #94a3b8;
+}
+
+/* ========================= */
+/* 🔵 DIA ATUAL */
+/* ========================= */
+
+body.dark-mode td.hoje {
+  position: relative;
+}
+
+/* pontinho */
+body.dark-mode td.hoje::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 4px auto 0;
+}
